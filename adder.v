@@ -1,3 +1,3 @@
-module adder(input[63:0] a , input[63:0] b ,output[63:0] c);
-	assign c = a+b;
+module adder(input apc  ,output bpc);
+	assign bpc = apc+4;
 endmodule
