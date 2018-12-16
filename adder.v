@@ -1,3 +1,3 @@
-module adder(input apc  ,output bpc);
-	assign bpc = apc+4;
+module adder(input []data1, data2  ,output bpc);
+	assign bpc = data1+data2;
 endmodule

@@ -6,6 +6,6 @@ module CPU();
 	os os0(clk);
 	testbench testbench0(a,b,c,w,clk,dataC);
 	regBank32x64 regBank0(a,b,c,w,dataA,dataB,dataC,clk);
-	adder adder0(apc);
+	adder adder0(apc,4,);
 	pc pc0(clk,bpc,wpc,reset);
 endmodule
