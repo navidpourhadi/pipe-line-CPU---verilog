@@ -1,9 +1,4 @@
-module instr_mem (outpc, instruction);
-//input
-	input [63:0]outpc;
-
-//output
-	output  [31:0]instruction;
+module instructionMemory (input[63:0] outpc,output[31:0] instruction);
 
 	reg [31:0] memory [31:0];
 	integer i;
