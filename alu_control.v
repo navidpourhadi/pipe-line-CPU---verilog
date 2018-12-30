@@ -8,10 +8,10 @@ if (ALUOp0==0&&ALUOp1==0) ALUControl=4'b0010;
 else if (ALUOp0==1) ALUControl=4'b0111;
 else if (ALUOp1==1)
 case(instruction)
-'b10001011000: ALUControl <= 'b 0010;
-'b11001011000 : ALUControl <='b0110;
-'b10001010000: ALUControl <= 'b 0000;
-'b10101010000: ALUControl <= 'b 0001;
+11'b10001011000: ALUControl <= 4'b0010;
+11'b11001011000: ALUControl <= 4'b0110;
+11'b10001010000: ALUControl <= 4'b0000;
+11'b10101010000: ALUControl <= 4'b0001;
 endcase  
 end 
 endmodule 

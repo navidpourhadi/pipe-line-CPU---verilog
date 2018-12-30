@@ -1,10 +1,10 @@
-module pc (input clk,[63:0] bpc, wpc,reset,output reg [63:0] apc);
+module pc #(parameter n = 64 , delay = 0) (input clk,[n-1:0] bpc,input wpc,input reset,output reg [n-1:0] apc);
 	
   	always @(posedge clk) begin
     		if (reset) begin
-      			apc = 0;
+      		#delay	apc = 0;
       		end
     		else if(wpc)
-	 		apc = bpc;
+	 	#delay	apc = bpc;
   	end
 endmodule

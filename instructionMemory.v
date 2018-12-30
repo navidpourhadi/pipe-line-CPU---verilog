@@ -1,4 +1,4 @@
-module instructionMemory (input[63:0] outpc,output[31:0] instruction);
+module instructionMemory #(parameter delay=0)(input[63:0] outpc,output[31:0] instruction);
 
 	reg [31:0] memory [31:0];
 	integer i;
@@ -12,6 +12,6 @@ module instructionMemory (input[63:0] outpc,output[31:0] instruction);
 		memory[3]=32'hF80010A6;
 	end
 	
-	assign instruction =  memory[outpc[6:2]];
+	assign #delay instruction =  memory[outpc[6:2]];
 
 endmodule

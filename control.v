@@ -1,6 +1,6 @@
-module control_unit (input[10:0] instruction ,output reg Reg2Loc, ALUSrc , MemtoReg , RegWrite , MemRead , MemWrite , Branch , ALUOp1 , ALUop0);
+module control_unit #(parameter delay=0) (input[10:0] instruction ,output reg Reg2Loc, ALUSrc , MemtoReg , RegWrite , MemRead , MemWrite , Branch ,UnCondBranch, ALUOp1 , ALUop0);
 
-always @(*) begin 
+always @(*) #delay  begin 
 casex (instruction)
 11'b1xx0101x000:
 begin
@@ -11,18 +11,20 @@ RegWrite = 1;
 MemRead = 0 ;
 MemWrite = 0;
 Branch = 0;
+UnCondBranch = 1;
 ALUOp1 = 1;
 ALUop0 = 0;
 end 
 11'b11111000010:
 begin
-Reg2Loc = 0;
+Reg2Loc = 1;
 ALUSrc = 1;
 MemtoReg = 1;
 RegWrite = 1;
 MemRead = 1 ;
 MemWrite = 0;
 Branch = 0;
+UnCondBranch = 1;
 ALUOp1 = 0;
 ALUop0 = 0;
 end
@@ -35,6 +37,7 @@ RegWrite = 0;
 MemRead = 0 ;
 MemWrite = 1;
 Branch = 0;
+UnCondBranch = 1;
 ALUOp1 = 0;
 ALUop0 = 0;
 end
@@ -47,6 +50,7 @@ RegWrite = 0;
 MemRead = 0 ;
 MemWrite = 0;
 Branch = 1;
+UnCondBranch = 1;
 ALUOp1 = 0;
 ALUop0 = 1;
 end
